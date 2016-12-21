@@ -6,7 +6,7 @@ stemcells="$*"
 sudo cp tool-om/om-linux /usr/local/bin
 sudo chmod 755 /usr/local/bin/om-linux
 
-for stemcell in stemcells
+for stemcell in ${stemcells}
 do
   echo "=============================================================================================="
   echo " Uploading stemcell ${stemcell} to @ https://opsman.$pcf_ert_domain ..."
