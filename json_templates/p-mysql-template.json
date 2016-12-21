@@ -16,10 +16,14 @@
     "properties": {
       ".properties.optional_protections": {
         "value": "disable"
+      },
+      ".properties.backups": {
+        "value": "disable"
       }
     }
   },
   "jobs": {
-      "monitoring": {"instance_type": {"id": "automatic"},"instances": 0,"elb_names": [],"internet_connected": false}
+      "monitoring": {"instance_type": {"id": "automatic"},"instances": 0,"elb_names": [],"internet_connected": false},
+      "backup-prepare": {"instance_type": {"id": "automatic"},"instances": 0,"elb_names": [],"internet_connected": false}
   }
 }
