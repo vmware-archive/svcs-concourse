@@ -18,5 +18,5 @@ do
          --username "$pcf_opsman_admin" \
          --password "$pcf_opsman_admin_passwd" \
         upload-stemcell \
-        --stemcell ${stemcell}
+        --stemcell ${stemcell}/*.tgz
 done
