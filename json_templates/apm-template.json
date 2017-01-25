@@ -17,7 +17,7 @@
       ".mysql_monitor.notifications_email": {
         "value": "gwestenberg@pivotal.io"
       },
-      ".elasticsearch_master,heap_size": {
+      ".elasticsearch_master.heap_size": {
         "value": "8G"
       },
       ".mysql.innodb_buffer_size": {
