@@ -86,7 +86,7 @@ echo "==========================================================================
 echo "Finding p-bosh nats credentials @ https://opsman.$pcf_ert_domain ..."
 echo "=============================================================================================="
 director_nats_password=$(fn_om_linux_curl "GET" "/api/v0/deployed/products/${director_guid}/credentials/.director.nats_credentials" \
-            | jq ".credential .value .password")
+            | jq ".credential .value .password" | xargs echo)
 
 perl -pi -e "s|{{director_nats_password}}|${director_nats_password}|g" ${json_file}
 
