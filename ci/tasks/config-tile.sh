@@ -22,10 +22,17 @@ sudo cp tool-om/om-linux /usr/local/bin
 sudo chmod 755 /usr/local/bin/om-linux
 
 echo "=============================================================================================="
+echo "Finding p-bosh @ https://opsman.$pcf_ert_domain ..."
+echo "=============================================================================================="
+# Get Director Guid
+director_guid=$(fn_om_linux_curl "GET" "/api/v0/deployed/products" \
+            | jq ".[] | select(.type == \"p-bosh\") | .guid" | tr -d '"' | grep "p-bosh-.*")
+
+echo "=============================================================================================="
 echo "Finding p-bosh nats credentials @ https://opsman.$pcf_ert_domain ..."
 echo "=============================================================================================="
-director_nats_password=$(fn_om_linux_curl "GET" "/api/v0/staged/products" \
-            | jq ".[] | select(.type == \"p-bosh\") | .jobs[] | select(.identifier == \"director\") | .properties[] | select(.identifier == \"nats_credentials\") | .value .password")
+director_nats_password=$(fn_om_linux_curl "GET" "/api/v0/deployed/products/${director_guid}/credentials/.director.nats_credentials" \
+            | jq ".credential .value .password")
 
 # Set Vars
 
