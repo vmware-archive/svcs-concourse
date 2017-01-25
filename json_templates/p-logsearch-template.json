@@ -11,5 +11,15 @@
         "name": "ert"
       }
     }
+  },
+  "properties": {
+    "properties": {
+      ".ingestor.nats_credentials": {
+        "value": {
+          "password": "{{director_nats_password}}",
+          "identity": "nats"
+        }
+      }
+    }
   }
 }

@@ -21,6 +21,12 @@ gcloud config set compute/region $gcp_region
 sudo cp tool-om/om-linux /usr/local/bin
 sudo chmod 755 /usr/local/bin/om-linux
 
+echo "=============================================================================================="
+echo "Finding p-bosh nats credentials @ https://opsman.$pcf_ert_domain ..."
+echo "=============================================================================================="
+director_nats_password=$(fn_om_linux_curl "GET" "/api/v0/staged/products" \
+            | jq ".[] | select(.type == \"p-bosh\") | .jobs[] | select(.identifier == \"director\") | .properties[] | select(.identifier == \"nats_credentials\") | .value .password")
+
 # Set Vars
 
 # Set JSON Config Template and insert Concourse Parameter Values
@@ -39,6 +45,8 @@ perl -pi -e "s/{{gcp_terraform_prefix}}/${gcp_terraform_prefix}/g" ${json_file}
 perl -pi -e "s/{{pcf_ert_domain}}/${pcf_ert_domain}/g" ${json_file}
 perl -pi -e "s|{{gcp_storage_access_key}}|${gcp_storage_access_key}|g" ${json_file}
 perl -pi -e "s|{{gcp_storage_secret_key}}|${gcp_storage_secret_key}|g" ${json_file}
+
+perl -pi -e "s|{{director_nats_password}}|${director_nats_password}|g" ${json_file}
 
 if [[ ! -f ${json_file} ]]; then
   echo "Error: cant find file=[${json_file}]"

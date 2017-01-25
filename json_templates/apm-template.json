@@ -11,5 +11,18 @@
         "name": "ert"
       }
     }
+  },
+  "properties": {
+    "properties": {
+      ".mysql_monitor.notifications_email": {
+        "value": "gwestenberg@pivotal.io"
+      },
+      ".elasticsearch_master,heap_size": {
+        "value": "8G"
+      },
+      ".mysql.innodb_buffer_size": {
+        "value": "8000000000"
+      }
+    }
   }
 }
