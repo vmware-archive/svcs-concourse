@@ -17,7 +17,7 @@
       ".maximus.credentials": {
         "value": {
           "identity": "admin",
-          "password": "{{pcf_opsman_admin_passwd}}"
+          "password": "{{password_gen()}}"
         }
       }
     }

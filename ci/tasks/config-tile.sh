@@ -23,22 +23,59 @@ sudo chmod 755 /usr/local/bin/om-linux
 
 # Set Vars
 
+echo "=============================================================================================="
+echo "Finding p-bosh @ https://opsman.$pcf_ert_domain ..."
+echo "=============================================================================================="
+# Get Director Guid
+director_guid=$(fn_om_linux_curl "GET" "/api/v0/deployed/products" \
+            | jq ".[] | select(.type == \"p-bosh\") | .guid" | tr -d '"' | grep "p-bosh-.*")
+
+echo "=============================================================================================="
+echo "Finding p-bosh nats credentials @ https://opsman.$pcf_ert_domain ..."
+echo "=============================================================================================="
+director_nats_password=$(fn_om_linux_curl "GET" "/api/v0/deployed/products/${director_guid}/credentials/.director.nats_credentials" \
+            | jq ".credential .value .password" | xargs echo)
+
+
 # Set JSON Config Template and insert Concourse Parameter Values
 json_file_path="svcs-concourse/json_templates"
 json_file_template="${json_file_path}/${product}-template.json"
 json_file="${json_file_path}/${product}.json"
 
+pip install jinja2
+
+python -c "
+import jinja2
+import string
+import random
+
+char_set = string.letters + string.digits + '_'
+
+def password_gen():
+	return ''.join(random.SystemRandom().choice(char_set) for _ in range(20))
+
+vals = {
+    'password_gen': password_gen,
+    'gcp_region': '${gcp_region}',
+    'gcp_zone_1': '${gcp_zone_1}',
+    'gcp_zone_2': '${gcp_zone_2}',
+    'gcp_zone_3': '${gcp_zone_3}',
+    'gcp_terraform_prefix': '${gcp_terraform_prefix}',
+    'pcf_ert_domain': '${pcf_ert_domain}',
+    'gcp_storage_access_key': '${gcp_storage_access_key}',
+    'gcp_storage_secret_key': '${gcp_storage_secret_key}',
+    'director_nats_password': '${director_nats_password}'
+}
+
+with open('${json_file_template}.json', 'r') as template_file:
+    template = template_file.read()
+    rendered = jinja2.Template(template).render(vals)
+    with open('${json_file}', 'w') as rendered_file:
+        rendered_file.write(rendered)
+"
+
+
 cp ${json_file_template} ${json_file}
-
-perl -pi -e "s/{{gcp_region}}/${gcp_region}/g" ${json_file}
-perl -pi -e "s/{{gcp_zone_1}}/${gcp_zone_1}/g" ${json_file}
-perl -pi -e "s/{{gcp_zone_2}}/${gcp_zone_2}/g" ${json_file}
-perl -pi -e "s/{{gcp_zone_3}}/${gcp_zone_3}/g" ${json_file}
-perl -pi -e "s/{{gcp_terraform_prefix}}/${gcp_terraform_prefix}/g" ${json_file}
-
-perl -pi -e "s/{{pcf_ert_domain}}/${pcf_ert_domain}/g" ${json_file}
-perl -pi -e "s|{{gcp_storage_access_key}}|${gcp_storage_access_key}|g" ${json_file}
-perl -pi -e "s|{{gcp_storage_secret_key}}|${gcp_storage_secret_key}|g" ${json_file}
 
 if [[ ! -f ${json_file} ]]; then
   echo "Error: cant find file=[${json_file}]"
@@ -74,21 +111,6 @@ function fn_om_linux_curl {
       echo $(cat /tmp/rqst_stdout.log)
     fi
 }
-
-echo "=============================================================================================="
-echo "Finding p-bosh @ https://opsman.$pcf_ert_domain ..."
-echo "=============================================================================================="
-# Get Director Guid
-director_guid=$(fn_om_linux_curl "GET" "/api/v0/deployed/products" \
-            | jq ".[] | select(.type == \"p-bosh\") | .guid" | tr -d '"' | grep "p-bosh-.*")
-
-echo "=============================================================================================="
-echo "Finding p-bosh nats credentials @ https://opsman.$pcf_ert_domain ..."
-echo "=============================================================================================="
-director_nats_password=$(fn_om_linux_curl "GET" "/api/v0/deployed/products/${director_guid}/credentials/.director.nats_credentials" \
-            | jq ".credential .value .password" | xargs echo)
-
-perl -pi -e "s|{{director_nats_password}}|${director_nats_password}|g" ${json_file}
 
 
 echo "=============================================================================================="
