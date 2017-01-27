@@ -16,7 +16,7 @@
     "properties": {
       ".rabbitmq-server.server_admin_credentials": {
         "value": {
-          "password": "{{pcf_opsman_admin_passwd}}", 
+          "password": "{{password_gen()}}",
           "identity": "admin"
         } 
       }
