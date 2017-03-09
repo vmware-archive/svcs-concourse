@@ -36,7 +36,7 @@ director_credentials=$($om_dir/om-linux -t https://opsman.$pcf_ert_domain -k \
 bosh_password=$(echo $director_credentials | jq -r ".credential.value.password")
 bosh_command='BUNDLE_GEMFILE=/home/tempest-web/tempest/web/vendor/bosh/Gemfile bundle exec bosh'
 
-ssh -o "StrictHostKeyChecking no" -i $credentials_dir/${terraform_prefix}.opsman_rsa ubuntu@${address} << EOF
+${management_dir}/ci/tasks/ssh_on_opsman.sh ${credentials_dir} << EOF
 set -ex
 
 echo "" | ${bosh_command} --ca-cert /var/tempest/workspaces/default/root_ca_certificate target 192.168.101.10 || true
