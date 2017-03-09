@@ -19,7 +19,7 @@ echo "Addon: ${addon}"
 popd
 
 echo "Copying across add-on"
-${management_dir}/ci/tasks/scp.sh ${credentials_dir} ${addon_dir} ${addon}
+${management_dir}/ci/tasks/scp_to_opsman.sh ${credentials_dir} ${addon_dir} ${addon}
 
 #chmod 600 $credentials_dir/${terraform_prefix}.opsman_rsa
 #address=$(gcloud compute --format=json instances describe ${terraform_prefix}-ops-manager | jq -r .networkInterfaces[0].accessConfigs[0].natIP)

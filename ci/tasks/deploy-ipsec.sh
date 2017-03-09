@@ -37,6 +37,6 @@ with open('${script_dir}/../../manifest_templates/ipsec-addon.yml', 'r') as temp
 
 EOF
 
-${management_dir}/ci/tasks/scp.sh ${management_dir} ${credentials_dir} ipsec-addon.yml.yml
+${management_dir}/ci/tasks/scp_to_opsman.sh ${management_dir} ${credentials_dir} ipsec-addon.yml.yml
 
 exit 1
