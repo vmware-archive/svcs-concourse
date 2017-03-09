@@ -9,7 +9,7 @@ echo "management_dir: ${management_dir}"
 echo "addon_dir: ${addon_dir}"
 
 echo "Setup gcp auth"
-management_dir/ci/tasks/gcp-tools-setup.sh
+${management_dir}/ci/tasks/gcp-tools-setup.sh
 
 pushd addon_dir
 addon=$(ls *.tgz)
