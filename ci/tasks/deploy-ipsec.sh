@@ -55,4 +55,3 @@ set -ex
 ${bosh_command} update runtime-config ipsec-addon.yml
 EOF
 
-exit 1
