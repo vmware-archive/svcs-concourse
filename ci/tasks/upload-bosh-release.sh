@@ -10,18 +10,21 @@ echo "Inputs"
 echo "management_dir: ${management_dir}"
 echo "addon_dir: ${addon_dir}"
 
-echo "Setup gcp auth"
-${management_dir}/ci/tasks/gcp-tools-setup.sh
+#echo "Setup gcp auth"
+#${management_dir}/ci/tasks/gcp-tools-setup.sh
 
 pushd ${addon_dir}
 addon=$(ls *.tgz)
 echo "Addon: ${addon}"
 popd
 
-chmod 600 $credentials_dir/${terraform_prefix}.opsman_rsa
-address=$(gcloud compute --format=json instances describe ${terraform_prefix}-ops-manager | jq -r .networkInterfaces[0].accessConfigs[0].natIP)
+echo "Copying across add-on"
+${management_dir}/ci/tasks/scp.sh ${credentials_dir} ${addon_dir} ${addon}
 
-scp -o "StrictHostKeyChecking no" -i $credentials_dir/${terraform_prefix}.opsman_rsa ${addon_dir}/${addon} ubuntu@${address}:~
+#chmod 600 $credentials_dir/${terraform_prefix}.opsman_rsa
+#address=$(gcloud compute --format=json instances describe ${terraform_prefix}-ops-manager | jq -r .networkInterfaces[0].accessConfigs[0].natIP)
+#
+#scp -o "StrictHostKeyChecking no" -i $credentials_dir/${terraform_prefix}.opsman_rsa ${addon_dir}/${addon} ubuntu@${address}:~
 
 chmod +x $om_dir/om-linux
 director_credentials=$($om_dir/om-linux -t https://opsman.$pcf_ert_domain -k \

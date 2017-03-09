@@ -17,12 +17,12 @@ addons:
       - 192.168.101.2/32 # ops manager
       - 192.168.101.10/32  # bosh director
       instance_certificate: |
-        {{ instance_certificate }}
+        {{ instance_certificate | indent(8) }}
       instance_private_key: |
-        {{ instance_private_key }}
+        {{ instance_private_key | indent(8) }}
       ca_certificates:
         - |
-          {{ ca_certificates }}
+          {{ ca_certificates | indent(10) }}
       prestart_timeout: 30
       esp_proposals: aes128gcm16!
       ike_proposals: aes128-sha256-modp2048!
