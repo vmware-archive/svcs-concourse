@@ -1,0 +1,28 @@
+releases:
+- name: ipsec
+  version: latest
+
+addons:
+- name: ipsec-addon
+  jobs:
+  - name: ipsec
+    release: ipsec
+  properties:
+    ipsec:
+      ipsec_subnets:
+      - {{ gcp_terraform_subnet_ops_manager }}
+      - {{ gcp_terraform_subnet_ert }}
+      - {{ gcp_terraform_subnet_services_1 }}
+      no_ipsec_subnets:
+      - 192.168.101.2/32 # ops manager
+      - 192.168.101.10/32  # bosh director
+      instance_certificate: |
+        {{ instance_certificate }}
+      instance_private_key: |
+        {{ instance_private_key }}
+      ca_certificates:
+        - |
+          {{ ca_certificates }}
+      prestart_timeout: 30
+      esp_proposals: aes128gcm16!
+      ike_proposals: aes128-sha256-modp2048!

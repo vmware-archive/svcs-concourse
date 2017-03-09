@@ -42,4 +42,3 @@ ${bosh_password}" | ${bosh_command} login
 ${bosh_command} upload release ${addon}
 EOF
 
-exit 1
