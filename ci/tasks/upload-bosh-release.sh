@@ -11,7 +11,7 @@ echo "addon_dir: ${addon_dir}"
 echo "Setup gcp auth"
 ${management_dir}/ci/tasks/gcp-tools-setup.sh
 
-pushd addon_dir
+pushd ${addon_dir}
 addon=$(ls *.tgz)
 echo "Addon: ${addon}"
 
