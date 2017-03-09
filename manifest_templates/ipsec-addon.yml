@@ -1,6 +1,6 @@
 releases:
 - name: ipsec
-  version: latest
+  version: {{ ipsec_version }}
 
 addons:
 - name: ipsec-addon
