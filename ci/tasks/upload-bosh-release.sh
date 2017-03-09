@@ -1,15 +1,22 @@
 #!/bin/bash
 set -e
 
-echo "$1"
-echo "$2"
+management_dir=$1
+addon_dir=$2
 
-echo "Hard-coding to gcp right now"
-$1/ci/tasks/gcp-tools-setup.sh
+echo "Inputs"
+echo "management_dir: ${management_dir}"
+echo "addon_dir: ${addon_dir}"
 
-# gcloud compute copy-files
+echo "Setup gcp auth"
+management_dir/ci/tasks/gcp-tools-setup.sh
 
-echo "Just testing a gcloud command"
-gcloud compute instances list
+pushd addon_dir
+addon=$(ls *.tgz)
+echo "Addon: ${addon}"
+
+gcloud compute copy-files ${addon} ${terraform_prefix}-ops-manager
+
+popd
 
 exit 1
