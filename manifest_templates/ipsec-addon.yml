@@ -14,7 +14,14 @@ addons:
       - {{ gcp_terraform_subnet_ert }}
       - {{ gcp_terraform_subnet_services_1 }}
       no_ipsec_subnets:
-      - 192.168.101.2/32 # ops manager
+      - 192.168.101.2/32 #saw ops manager on both .2 and .3 - just exclude reserved range
+      - 192.168.101.3/32
+      - 192.168.101.4/32
+      - 192.168.101.5/32
+      - 192.168.101.6/32
+      - 192.168.101.7/32
+      - 192.168.101.8/32
+      - 192.168.101.9/32
       - 192.168.101.10/32  # bosh director
       instance_certificate: |
         {{ instance_certificate | indent(8) }}
