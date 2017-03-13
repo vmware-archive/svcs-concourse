@@ -14,6 +14,7 @@ addons:
       - {{ gcp_terraform_subnet_ert }}
       - {{ gcp_terraform_subnet_services_1 }}
       no_ipsec_subnets:
+      - 192.168.16.1/32  #default gateway, +5s timeout (DNS?) w/o this
       - 192.168.101.2/32 #saw ops manager on both .2 and .3 - just exclude reserved range
       - 192.168.101.3/32
       - 192.168.101.4/32
