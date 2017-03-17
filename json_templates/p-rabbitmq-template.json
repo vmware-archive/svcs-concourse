@@ -18,10 +18,10 @@
         "value": {
           "password": "{{password_gen()}}",
           "identity": "admin"
-        },
-        ".properties.metrics_tls_disabled": {
-          "value": false
         }
+      },
+      ".properties.metrics_tls_disabled": {
+        "value": false
       }
     }
   }
