@@ -45,11 +45,11 @@ with open('${script_dir}/../../manifest_templates/ipsec-addon.yml', 'r') as temp
 EOF
 
 echo "Copy over template"
-${management_dir}/ci/tasks/scp_to_opsman.sh ${credentials_dir} ipsec-addon.yml
+${management_dir}/ci/tasks/scp-to-opsman.sh ${credentials_dir} ipsec-addon.yml
 
 echo "Updating runtime config (assuming already logged in to BOSH)"
 bosh_command='BUNDLE_GEMFILE=/home/tempest-web/tempest/web/vendor/bosh/Gemfile bundle exec bosh'
-${management_dir}/ci/tasks/ssh_on_opsman.sh ${credentials_dir} << EOF
+${management_dir}/ci/tasks/ssh-on-opsman.sh ${credentials_dir} << EOF
 set -ex
 
 ${bosh_command} update runtime-config ipsec-addon.yml
