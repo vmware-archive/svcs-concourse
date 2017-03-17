@@ -15,7 +15,7 @@
   "properties": {
     "properties": {
       ".properties.metrics_disable_etcd_tls": {
-        "value": true
+        "value": false
       }
     }
   },
