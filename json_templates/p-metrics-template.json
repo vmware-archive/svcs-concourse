@@ -9,22 +9,17 @@
       ],
       "network": {
         "name": "ert"
-      },
-      "service_network": {
-        "name": "services-1"
       }
     }
   },
   "properties": {
     "properties": {
-      ".properties.metrics_disable_etcd_tls": {
-        "value": false
+      ".maximus.credentials": {
+        "value": {
+          "identity": "admin",
+          "password": "{{password_gen()}}"
+        }
       }
     }
-  },
-  "errands": {
-    "errands": [
-      {"name": "smoke-tests", "post_deploy": false}
-    ]
   }
 }
