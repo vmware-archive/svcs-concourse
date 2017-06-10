@@ -23,8 +23,20 @@
           "identity": "admin"
         }
       },
-      ".properties.metrics_tls_disabled": {
-        "value": false
+      ".properties.disk_alarm_threshold": {
+        "value": "mem_relative_1_5"
+      },
+      ".on-demand-broker.enable_single_node_plan": {
+        "value": true
+      },
+      ".on-demand-broker.persistent_disk_type": {
+        "value": "2048"
+      },
+      ".on-demand-broker.az_placement": {
+        "value": [ "us-central1-a" ]
+      },
+      ".on-demand-broker.rmq_vm_type": {
+        "value": "micro"
       }
     }
   }

@@ -17,8 +17,20 @@
   },
   "properties": {
     "properties": {
-      ".properties.metrics_disable_etcd_tls": {
-        "value": false
+      ".properties.small_plan_selector.active.az_single_select": {
+        "value": "us-central1-a"
+      },
+      ".properties.small_plan_selector.active.vm_type": {
+        "value": "micro"
+      },
+      ".properties.small_plan_selector.active.disk_size": {
+        "value": "5120"
+      },
+       ".properties.medium_plan_selector": {
+        "value": "Plan Inactive"
+      },
+       ".properties.large_plan_selector": {
+        "value": "Plan Inactive"
       }
     }
   },
