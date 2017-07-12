@@ -18,7 +18,7 @@
         "value": "disable"
       },
       ".properties.syslog_selector": {
-        "value": "disable"
+        "value": "No"
       },
       ".properties.backups": {
         "value": "disable"
