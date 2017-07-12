@@ -31,7 +31,10 @@
       },
        ".properties.large_plan_selector": {
         "value": "Plan Inactive"
-      }
+      },
+      ".properties.syslog_selector": {
+        "value": "No"
+      },
     }
   },
   "errands": {
