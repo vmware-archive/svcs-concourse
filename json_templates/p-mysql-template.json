@@ -22,7 +22,7 @@
         "value": "disable"
       },
       ".properties.syslog_selector": {
-        "value": "No"
+        "value": "false"
       }
   },
   "jobs": {
