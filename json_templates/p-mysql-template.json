@@ -21,8 +21,10 @@
       ".properties.backups": {
         "value": "disable"
       },
-      ".properties.syslog": {
-        "value": "No"
+      "properties": {
+        ".properties.syslog": {
+          "value": "disable"
+          }
       }
   },
   "jobs": {
