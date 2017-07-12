@@ -16,11 +16,12 @@
     "properties": {
       ".properties.optional_protections": {
         "value": "disable"
-      },
-      ".properties.syslog_selector": {
-        "value": "No"
+        }
       },
       ".properties.backups": {
+        "value": "disable"
+      },
+      ".properties.syslog_selector": {
         "value": "disable"
       }
     }
