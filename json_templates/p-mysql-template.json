@@ -22,7 +22,7 @@
         "value": "disable"
       },
       ".properties.syslog": {
-        "value": "Disable syslog"
+        "value": "disabled"
       }
   },
   "jobs": {
