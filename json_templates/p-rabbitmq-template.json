@@ -31,18 +31,6 @@
       },
       ".properties.on-demand-broker.rmq_vm_type": {
         "value": "micro"
-      },
-      ".properties.on-demand-broker.az_placement": {
-        "value": ["us-central1-a"]
-      },
-      ".properties.on-demand-broker.solo_plan_instance_quota": {
-        "value": "10"
-      },
-      ".properties.on-demand-broker.persistent_disk_type": {
-        "value": "1024"
-      },
-      ".properties.on-demand-broker.enable_single_node_plan": {
-        "value": "true"
       }
     }
   }
