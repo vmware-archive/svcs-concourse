@@ -25,6 +25,9 @@
       },
       ".properties.metrics_tls_disabled": {
         "value": false
+      },
+      ".properties.disk_alarm_threshold": {
+        "value": "mem_relative_1_0"
       }
     }
   }
