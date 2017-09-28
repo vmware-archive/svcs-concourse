@@ -27,10 +27,22 @@
         "value": "mem_relative_1_0"
       },
       ".properties.syslog_selector": {
-        "value": "No"
+        "value": "disabled"
       },
-      ".properties.on-demand-broker.rmq_vm_type": {
+      ".on-demand-broker.rmq_vm_type": {
         "value": "micro"
+      },
+      ".on-demand-broker.az_placement": {
+        "value": ["us-central1-a"]
+      },
+      ".on-demand-broker.solo_plan_instance_quota": {
+        "value": "10"
+      },
+      ".on-demand-broker.persistent_disk_type": {
+        "value": "1024"
+      },
+      ".on-demand-broker.enable_single_node_plan": {
+        "value": "true"
       }
     }
   }
