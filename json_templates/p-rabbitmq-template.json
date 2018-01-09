@@ -26,23 +26,26 @@
       ".properties.disk_alarm_threshold": {
         "value": "mem_relative_1_0"
       },
+      ".properties.on_demand_broker_plan_1_cf_service_access": {
+              "value": "enable"
+      },
       ".properties.syslog_selector": {
         "value": "disabled"
       },
-      ".on-demand-broker.rmq_vm_type": {
+      ".properties.on_demand_broker_plan_1_rabbitmq_vm_type": {
         "value": "micro"
       },
-      ".on-demand-broker.az_placement": {
-        "value": ["us-central1-a"]
+      ".properties.on_demand_broker_plan_1_rabbitmq_az_placement": {
+        "value": ["{{gcp_zone_1}}"]
       },
-      ".on-demand-broker.solo_plan_instance_quota": {
+      ".properties.on_demand_broker_plan_1_disk_limit_acknowledgement": {
+        "value": ["acknowledge"]
+      },
+      ".properties.on_demand_broker_plan_1_instance_quota": {
         "value": "10"
       },
-      ".on-demand-broker.persistent_disk_type": {
+      ".properties.on_demand_broker_plan_1_rabbitmq_persistent_disk_type": {
         "value": "1024"
-      },
-      ".on-demand-broker.enable_single_node_plan": {
-        "value": "true"
       }
     }
   }
