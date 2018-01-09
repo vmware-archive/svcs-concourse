@@ -33,7 +33,7 @@
         "value": "micro"
       },
       ".on-demand-broker.az_placement": {
-        "value": ["us-central1-a"]
+        "value": ["{{gcp_zone_1}}"]
       },
       ".on-demand-broker.solo_plan_instance_quota": {
         "value": "10"
