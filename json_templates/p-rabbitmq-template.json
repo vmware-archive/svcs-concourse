@@ -45,7 +45,7 @@
         "value": "10"
       },
       ".properties.on_demand_broker_plan_1_rabbitmq_persistent_disk_type": {
-        "value": "1024"
+        "value": "5120"
       }
     }
   }
