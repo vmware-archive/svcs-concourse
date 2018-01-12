@@ -3,7 +3,7 @@ set -e
 
 management_dir=$1
 credentials_dir=$2
-addon_dir=$4
+addon_dir=$3
 
 echo "Inputs"
 echo "management_dir: ${management_dir}"
