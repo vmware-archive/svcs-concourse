@@ -33,13 +33,13 @@
         "value": "micro"
       },
       ".on-demand-broker.az_placement": {
-        "value": ["us-central1-a"]
+        "value": ["{{gcp_zone_1}}"]
       },
       ".on-demand-broker.solo_plan_instance_quota": {
         "value": "10"
       },
       ".on-demand-broker.persistent_disk_type": {
-        "value": "1024"
+        "value": "5120"
       },
       ".on-demand-broker.enable_single_node_plan": {
         "value": "true"
