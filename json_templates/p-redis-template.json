@@ -18,7 +18,7 @@
   "properties": {
     "properties": {
       ".properties.small_plan_selector.active.az_single_select": {
-        "value": "us-central1-a"
+        "value": "{{gcp_zone_1}}"
       },
       ".properties.small_plan_selector.active.vm_type": {
         "value": "micro"
