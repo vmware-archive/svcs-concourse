@@ -2,26 +2,26 @@
   "properties": {
     ".properties.opsman_network": {
       "type": "network_address",
-      "value": "{{ gcp_terraform_subnet_ops_manager }}"
+      "value": "{{gcp_terraform_subnet_ops_manager}}"
     },
     ".properties.ert_network": {
       "type": "network_address",
-      "value": "{{ gcp_terraform_subnet_ert }}"
+      "value": "{{gcp_terraform_subnet_ert}}"
     },
     ".properties.service_network": {
       "type": "network_address",
-      "value": "{{ gcp_terraform_subnet_services_1 }}"
+      "value": "{{gcp_terraform_subnet_services_1}}"
     },
     ".properties.certificate": {
       "type": "rsa_cert_credentials",
       "value": {
-        "private_key_pem": "{{ instance_certificate }}",
-        "cert_pem": "{{ instance_private_key }}"
+        "private_key_pem": "{{instance_certificate}}",
+        "cert_pem": "{{instance_private_key}}"
       }
     },
     ".properties.certificate_authority": {
       "type": "ca_certificate",
-      "value": "{{ ca_certificates }}"
+      "value": "{{ca_certificates}}"
     }
   }
 }
