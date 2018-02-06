@@ -1,27 +1,29 @@
 {
   "properties": {
-    ".properties.opsman_network": {
-      "type": "network_address",
-      "value": "{{ gcp_terraform_subnet_ops_manager }}"
-    },
-    ".properties.ert_network": {
-      "type": "network_address",
-      "value": "{{ gcp_terraform_subnet_ert }}"
-    },
-    ".properties.service_network": {
-      "type": "network_address",
-      "value": "{{ gcp_terraform_subnet_services_1 }}"
-    },
-    ".properties.certificate": {
-      "type": "rsa_cert_credentials",
-      "value": {
-        "private_key_pem": "{{ instance_certificate }}",
-        "cert_pem": "{{ instance_private_key }}"
+    "properties": {
+      ".properties.opsman_network": {
+        "type": "network_address",
+        "value": "{{gcp_terraform_subnet_ops_manager}}"
+      },
+      ".properties.ert_network": {
+        "type": "network_address",
+        "value": "{{gcp_terraform_subnet_ert}}"
+      },
+      ".properties.service_network": {
+        "type": "network_address",
+        "value": "{{gcp_terraform_subnet_services_1}}"
+      },
+      ".properties.certificate": {
+        "type": "rsa_cert_credentials",
+        "value": {
+          "private_key_pem": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDCOl+fZKH5MmRi\n0gMRk2OjPvpuRBiHc8F+5PK5iQiTemGPTYQmBwhsCJpGHzk9DPvZRmuRuI+CimjO\n2NDHVVFxSPVREhmh7KcjswbHeUbChI0igstJy8j3TqBB60sfMmhFkqkDFYRla8I9\nMJCTjhBCuSleIiGhksHptEYVJeY8gY4lxz/JU7k2GEiIrk/8aDD+R4EfbUeMPviJ\nVm1MZkbjXjuDJI1JRt13G00r6ZtK2uNVJTnUtR3v8Hg9zXTswRqKOwyQJ10L+640\nlZY1spkiOrCn25RlTQ6J+D2uxhivSVIDsCEWDeJknqupd8zXD/JCl0q0IKCt+vAP\nYnTRn4MLAgMBAAECggEBAIVvVQJMQHrTA+RgI3uPpoQgYCwg3DkybVygLaEJY7rt\n+NhaiM8XRdHylwpVqR0oLl2242/ZO76TGC4DBmvrUWhilyZ7KOD1lF4SQDYKO3Kn\nXc63zLGGLyq3+aFP5Owp1Tj26OYVgj+rKGahVrIIh2NPkfv5tuEp0c6c6wjcYLBv\nnj2WrK8CVLl2RYv7eNQUQaNe09vV3dN1kVkbtdvD5US/ArR0UR6XcVjFvfVrBo+L\nITZ8f3JlKV+LcUl2j+rvi9XCCWUuOmcNkbWq/KoMnZQcad5pHT4bZSqBtw1OQVQ3\nKxWvHnNNyA3hq2hM5LH1OX5OBpBUI7Ihq0Xyyrh79QECgYEA66oKznYOst9S9ELg\niSd2c275jxT0Z82j4066pqmSZvessH0GhiZ+wUHZ+oMj/PwxQpotvrjLFYhs9ykN\n9AX/HOS4q15cn2nrNHv/36R+CZj/Ew2z/jFoBfcCf51e86Tu6L5O9p0gv/HMHJ3M\nYOfGVN6tnU1lUu3aH9ADj3T3+p8CgYEA0vz7VovzrEyE7OnqIhS7wrOw+Yf16GzN\nF1QwV4PACVsFYOIki9mXE2HiCP+CgK5EMBiALj4YFu7yNujaprzptTOIBlyY47iU\nnEXLdyFBQO4/crEnbfOG8rTx6aZjPZbb9jUJiOOo7kEYdvjKdfLHdRGhPA6zAJGz\nelM2xdInjBUCgYA654TN+EpSQWndrf2rqpZ74eg08Frqu0bUoTAcSlRSsmOStZ10\n2JhkO859RFwxduPlLt5yRoRUfIYn/TYEoZ8TnMPf6bUjD3l/4+KgBuCOC5TuMUWl\nKrpCi2wvc6lxIu+oczEPiVTPRWPsXzDfo+859XLV16uU3+jefML3D5iQJwKBgQCu\ncEq8+2izg3BDEAJruwihqT8gj7BYQdwu9YQiVuNm2MJRn6bnmTa2566iEd4r1ei6\newc/NEdmbpgDnfFo+begAMLtv5EIdYsoyOu3yt7QeCotARrAZR+lesSnkNFsElY5\n8Q+5BcCde2RmuLtrWRZfS/wqU1zbk5r3/+TBGUdpIQKBgQCV6CRYNoRkSIjxp8qJ\n1QlTIo6mc/aXm5PsfgHucCNTy7z+eTRq/XEZI1VP+mPQISI+sJQeCiyGtNHVowPr\nqCtlUB5LyMcfKnbogzEMqTnZKkoyWcbxPtqNPe6a9a5wh2bN53txKi1nZADzPr8U\nGQ6XY5f67oiah2kfkJWrJjK1YQ==\n-----END PRIVATE KEY-----",
+          "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDajCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAdMRswGQYDVQQDDBJQQ0Yg\nSVBzZWMgQWRkT24gQ0EwHhcNMTgwMTMwMjI0MTAyWhcNMTkwMTMwMjI0MTAyWjAZ\nMRcwFQYDVQQDDA5QQ0YgSVBzZWMgcGVlcjCCASIwDQYJKoZIhvcNAQEBBQADggEP\nADCCAQoCggEBAMI6X59kofkyZGLSAxGTY6M++m5EGIdzwX7k8rmJCJN6YY9NhCYH\nCGwImkYfOT0M+9lGa5G4j4KKaM7Y0MdVUXFI9VESGaHspyOzBsd5RsKEjSKCy0nL\nyPdOoEHrSx8yaEWSqQMVhGVrwj0wkJOOEEK5KV4iIaGSwem0RhUl5jyBjiXHP8lT\nuTYYSIiuT/xoMP5HgR9tR4w++IlWbUxmRuNeO4MkjUlG3XcbTSvpm0ra41UlOdS1\nHe/weD3NdOzBGoo7DJAnXQv7rjSVljWymSI6sKfblGVNDon4Pa7GGK9JUgOwIRYN\n4mSeq6l3zNcP8kKXSrQgoK368A9idNGfgwsCAwEAAaM5MDcwCQYDVR0TBAIwADAL\nBgNVHQ8EBAMCA/gwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMA0GCSqG\nSIb3DQEBCwUAA4IBgQBZHFygttt7hvMnb+VRLqGGPvVhpDS+H1IN1SPIQ0lu6Gu6\nuaHppUfWbsJb44Ch0XwBC125XsS7FMrmWGFRjN5E8Joo79beFWH4J0GZwjIaz0IB\nrQFuu6yaNrQ+OuHOh+FRXPJwYnLbosaxbMBcc2RfRE/7gqToXvGT9TOHE02e8CeB\nU6TifOcUVCwStNkhFa8fbyIXvkZtJcTrSMXyGlFVrWmOgrvjkTSiP1y+chQ/R2Vy\nDqXdo1sr/++7ZIqVhY+MR2xQVd908meQeOyJvIE1or8xocc9htsigqcTRuRgC1gn\nFy5jUXfI9QQuwXEA3nrV8e8jMTX9yTNcbUFCXrPnK3FeNbVoJN/YsxF+bvsrv5DM\ni+AopV+JmZRWBGjk1+YxEY+aYwIPVthww8avEyMidB/FclkI9VR/HWLCHelbuWyX\n4zAuTyrxUXRdRNCMPP8l21yioBdorlitzYVIlcJvzeCIfRd+9FzS0NOdbta/y8TJ\nYlRjbhG0UQzy8R8Zxqk=\n-----END CERTIFICATE-----"
+        }
+      },
+      ".properties.certificate_authority": {
+        "type": "ca_certificate",
+        "value": "-----BEGIN CERTIFICATE-----\nMIIEUDCCArigAwIBAgIJAPNtwhAypHlBMA0GCSqGSIb3DQEBCwUAMB0xGzAZBgNV\nBAMMElBDRiBJUHNlYyBBZGRPbiBDQTAeFw0xODAxMzAyMjQxMDFaFw0yMTAxMjky\nMjQxMDFaMB0xGzAZBgNVBAMMElBDRiBJUHNlYyBBZGRPbiBDQTCCAaIwDQYJKoZI\nhvcNAQEBBQADggGPADCCAYoCggGBANnV6IZcVzTA8DJSG59moXTiytq956ZuGFHW\nrkev2p3bYbjjNgEQ9o/N5WfcRImcX41gYXbowYBthC1f3xqYJE9S99rtOJX0pqov\nNGjISSr/HtM5OBc224rb/X9eY9CweM/OW5BguVxK31ZhSeb9kHwBbnkYHW9w38ZR\nfLay3QxVUI41W9E2FpS0G9GE3uXPofSS7SuBjUzU4MsTT9gB7sgtmMHUmbFoBDjF\nA6MGUJb+N7BfT8d3hRdxsBKNch63Kyv9Zc8FkWT8UezEDJBG1oF6vfBD1Y/QVKVl\n2dffFOGw57JldOdrzWRebBUXTKYJWoRdOAroxlEqGpQsUTkGGJvivblFni97AE6v\nr5ndSCtQNN81l205CvKbHanBcaMLJIObB+TUZL0kEz4JrsU9IQs4FMBJhfdaSiEb\nRSNQ6dgbpOiwh/xo/sSkLd2LNEJkNRik1YZAsep5sAHPJFqqZX9+lGovN7o+poeY\np0LotrnRjFnzG4eQ1G9Eg2Q1agHZPQIDAQABo4GSMIGPMB0GA1UdDgQWBBQQMtWY\nvL6oJXNbu/tc3Bb7poA7xjBNBgNVHSMERjBEgBQQMtWYvL6oJXNbu/tc3Bb7poA7\nxqEhpB8wHTEbMBkGA1UEAwwSUENGIElQc2VjIEFkZE9uIENBggkA823CEDKkeUEw\nEgYDVR0TAQH/BAgwBgEB/wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQELBQAD\nggGBAIIFX+3W92oxD7cHh719D93sI/KO+UynCRFpWvbRacwcnfH9pCl27Z0DOrgb\nBIyuymsu1XBHD22QYN18UeuEapw3PbMh8ZS5ONQHxWEgtNc1u1KATDgTBiSMgiRR\n71115qeD/b8nbVTq226ZogyELGF5ztmtOWGe1tDY/+4j8aLcHhJ298P29ep6b7Cs\nFZAki3SQN7Pi5YjaVctA1a0hq6VfDv7GqLlxlJpr2ruAmUh5aZFurp/w+vmCJIuF\nvX6J+ZlQlDuSe3D80m+GhhpkzWAKgi/qQNV1ks+9VABhdKN36279iJG5GptWY8JT\n5h9HOCVAUws2hBJaDUwYbT+tDSwQNh+7VFU5fN3qzh9OC4b/1lt0qMTU6cURWO8P\nFbKsIN2z92qfkPSruLJ6AAQgND4uvN8Azqhov8s7ltYvypoYFNFkCLkAGpi3f1gM\nbZRuXtRaVEkSqwjpgNq+itEOsg/oI7nz4Zv24qxSsbFXfeakJAyQhlqeCsauT+qP\nw8HWzg==\n-----END CERTIFICATE-----"
       }
-    },
-    ".properties.certificate_authority": {
-      "type": "ca_certificate",
-      "value": "{{ ca_certificates }}"
     }
   }
 }
