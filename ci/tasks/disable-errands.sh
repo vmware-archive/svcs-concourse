@@ -61,4 +61,8 @@ echo "==========================================================================
 json_errands=$(fn_om_linux_curl "GET" "/api/v0/staged/products/${product_guid}/errands")
 echo $json_errands | jq '.errands[] | select(.post_deploy == true) | "disabling: " + .name'
 json_errands=$(echo ${json_errands} | jq '( .errands[] | select(.post_deploy == true) | .post_deploy ) |= false')
-fn_om_linux_curl "PUT" "/api/v0/staged/products/${product_guid}/errands" "${json_errands}"
+if [[ ! -z $(echo ${json_errands} | jq .errands[]) ]]; then
+  fn_om_linux_curl "PUT" "/api/v0/staged/products/${product_guid}/errands" "${json_errands}"
+else
+  echo "No post-deploy errands to disable"
+fi
